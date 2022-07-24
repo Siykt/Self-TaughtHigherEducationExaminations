@@ -11,3 +11,4 @@
 ## 记录
 
 2022.7.23 Java 语言程序设计(一), 详见: [Java 概述](docs/java/Java概述.md)
+2022.7.24 java.lang API 文件了解, 详见: [java-lang](docs/java/java-lang.md)
