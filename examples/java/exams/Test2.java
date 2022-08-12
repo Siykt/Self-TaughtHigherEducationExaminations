@@ -19,5 +19,8 @@ public class Test2 {
         System.out.println("小于 10");
       }
     }
+
+    // 关闭输入流
+    s.close();
   }
 }
