@@ -19,8 +19,25 @@ public class AnalyticalProblem {
     System.out.println("run expressTest: " + d);
   }
 
+  static void t1_33() {
+    boolean a, b, c;
+    a = false;
+    b = true;
+    c = false;
+    // 短路 ||
+    a = a || c && c;
+    // 短路 &&
+    b = a && (b || c);
+    // 短路 &&
+    c = b && a && c;
+    // a = false, b = false, c = false
+    System.out.println("a = " + a + ", b = " + b + ", c = " + c);
+  }
+
   public static void main(String[] args) {
     // run expressTest: 2
     expressTest();
+    // a = false, b = false, c = false
+    t1_33();
   }
 }
