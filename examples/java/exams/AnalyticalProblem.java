@@ -34,6 +34,22 @@ public class AnalyticalProblem {
     System.out.println("a = " + a + ", b = " + b + ", c = " + c);
   }
 
+  static void max() {
+    int x = 2, y = 9, z = 1;
+    // 优先级判断, x >= y 之后不会再运行 x >= z 及其分支
+    // 即输出最大值是: 9
+    if (x >= y)
+      // 不会运行
+      if (x >= z)
+        System.out.println("最大值是: " + x);
+      else
+        System.out.println("最大值是: " + z);
+    else if (y >= x)
+      System.out.println("最大值是: " + y);
+    else
+      System.out.println("最大值是: " + z);
+  }
+
   public static void main(String[] args) {
     // run expressTest: 2
     expressTest();
