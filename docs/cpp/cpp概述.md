@@ -21,7 +21,7 @@
 4. 点击左上角的 `installation`, 然后点击 `Apply Changes`
 5. 点击 `Apply`, 等待安装完成, 点击 `close`
 
-> MinGW 配置较为繁琐，可以考虑使用 MinGW64，MinGW64 安装后就不需上方的配置，一路点击下一步即可。（但是还是要配置环境变量
+> MinGW 配置较为繁琐, 可以考虑使用 MinGW64, MinGW64 安装后就不需上方的配置, 一路点击下一步即可。（但是还是要配置环境变量
 
 ### 添加环境变量
 
@@ -132,6 +132,43 @@ Ctrl+S 保存,然后按 F5,VSCode 会在上方弹出选择环境,选择 C++(GDB/
 
 Ctrl+S 保存, 然后回到新建的 cpp, 按下 F5, 程序就会被编译运行, 至此 GDB 调试环境便配置完成.
 
+### 中文编码问题
+
+因为 Windows(中文)默认的字符集是 Windows-936(GBK), mingw 的内部是 GCC, 而 GCC 编译器默认编译的时候是按照 UTF-8 解析和输出的, 当未指定字符集时一律当作 UTF-8 进行处理, 于是在调试中会造成中文输出乱码。
+
+这时我们只要修改 mingw 的输出, 让它在编译时使用 GBK 编码输出, 然后再让 CMD 去显示即可.
+
+处理中文乱码只需要设置两个编译参数, 在 `tasks.json` 中 `tasks` 中的 `args` 中添加 `-fexec-charset=GBK` 和 `-finput-charset=UTF-8`:
+
+```json
+{
+  // ...
+  "tasks": [
+    {
+      "label": "Build",
+      "command": "g++",
+      "args": [
+        "-g",
+        "-Wall",
+
+        // 处理mingw中文编码问题
+        "-fexec-charset=GBK",
+        "-finput-charset=UTF-8",
+
+        "-std=c++11",
+        "-lm",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ]
+      // ...
+    }
+  ]
+}
+```
+
 ### 参考链接
 
 [VSCode 配置 C/C++ GDB 调试环境[Windows]](https://blog.ixk.me/post/vscode-configuration-c-cpp-gdb-debugging-environment-windows)
+
+[mingw 控制台中文乱码](https://www.cnblogs.com/chouxianyu/p/11249810.html)
