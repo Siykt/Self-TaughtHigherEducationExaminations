@@ -10,4 +10,4 @@
 # 编译后的 class 文件
 examples/java/**.class
 # 编译后的 exe 文件
-examples/cpp/**.exe
+examples/cpp/**/*.exe
