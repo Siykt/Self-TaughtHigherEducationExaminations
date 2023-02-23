@@ -1,13 +1,24 @@
 .DS_Store
-.vscode
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+tests/**/coverage/
+coverage/
+
+# Editor directories and files
 .idea
+.vscode
 *.suo
+*.class
 *.ntvs*
 *.njsproj
 *.sln
 **.local
+yarn.lock
+static/images/
 
-# 编译后的 class 文件
-examples/java/**.class
-# 编译后的 exe 文件
-examples/cpp/**/*.exe
+.temp
+.cache

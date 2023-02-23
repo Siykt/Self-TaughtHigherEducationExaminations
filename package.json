@@ -1,0 +1,16 @@
+{
+  "name": "Self-TaughtHigherEducationExaminations",
+  "version": "1.0.0",
+  "description": "自学考试",
+  "repository": "https://github.com/Siykt/Self-TaughtHigherEducationExaminations.git",
+  "author": "siykt <cnsiykt@163.com>",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:preview": "vuepress preview docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.9.8"
+  }
+}
